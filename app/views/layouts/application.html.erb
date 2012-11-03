@@ -1,14 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>hopscout</title>
+  <title>hopsnob | find your favorite beer</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="<%=image_path("favicon.ico")%>">
+  <!--Smooth FF/Windows -->
+  <meta http-equiv="cleartype" content="on">
+  
+ <!-- Mobile Specific Metas
+================================================= -->
+ <meta name="HandheldFriendly" content="True">
+ <meta name="MobileOptimized" content="320">
+ <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0">
 </head>
 <body>
 
 <%= yield %>
 
+<!-- JS - Add or remove any of the scripts to suit the functionality you wish to display. 
+  ================================================== -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  	  <%= javascript_include_tag "respond.js" %>
+	  <%= javascript_include_tag "jquery.flexnav-min.js" %>
+	  <%= javascript_include_tag "tabs.js" %>
+	  <%= javascript_include_tag "responsiveslides.js" %>
+	  <%= javascript_include_tag "responsive_dropdown.js" %>
+	  <%= javascript_include_tag "responsive_slideshow.js" %>
+	  <%= javascript_include_tag "plugins.js" %>
+	  <%= javascript_include_tag "scripts.js" %>
+	  <%= javascript_include_tag "helper.js" %>
+  <!-- Asynchronous Google Analytics snippet. Change UA-XXXXX-X to be your site's ID.
+     mathiasbynens.be/notes/async-analytics-snippet
+  <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+      END ANALYTICS -->
+  </script>
 </body>
 </html>

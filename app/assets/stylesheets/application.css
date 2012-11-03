@@ -1,3 +1,4 @@
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -11,3 +12,19 @@
  *= require_self
  *= require_tree .
  */
+/* ================ MAP STYLES ====================== */
+form#mapForm, div#location, div#distance {
+	padding: 5px;
+}
+
+div#map {
+	margin: 5px;
+	width: 99%;
+	height: 400px;
+	border: 1px solid black;
+	-webkit-filter: grayscale(100%);
+	-moz-fileter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+}

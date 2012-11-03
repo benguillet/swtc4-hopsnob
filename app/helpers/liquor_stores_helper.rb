@@ -1,0 +1,2 @@
+module LiquorStoresHelper
+end

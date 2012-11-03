@@ -17,3 +17,4 @@ pickle-email-*.html
 
 db/development.sqlite3-journal
 .DS_Store
+.idea/*

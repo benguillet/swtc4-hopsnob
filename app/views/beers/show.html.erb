@@ -1,0 +1,21 @@
+<h1>Beers#show</h1>
+<p>Find me in app/views/beers/show.html.erb</p>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @beer.name %>
+</p>
+
+<table>
+  <tr>
+    <th>Product</th>
+  </tr>
+
+  <% @products.each do |beer| %>
+      <tr>
+        <td><%= beer.price %></td>
+      </tr>
+  <% end %>
+</table>

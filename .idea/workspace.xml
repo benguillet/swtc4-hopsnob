@@ -8,11 +8,6 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/app/helpers/search_results_helper.rb" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/functional/search_results_controller_test.rb" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/helpers/search_results_helper_test.rb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/beer.rb" afterPath="$PROJECT_DIR$/app/models/beer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/liquor_store.rb" afterPath="$PROJECT_DIR$/app/models/liquor_store.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/product.rb" afterPath="$PROJECT_DIR$/app/models/product.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
     </list>
     <ignored path="swtc4-hopsnob.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +29,7 @@
       <file leaf-file-name="beers_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/beers_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="38" selection-start="285" selection-end="285" vertical-scroll-proportion="0.3783032">
+            <state line="25" column="36" selection-start="465" selection-end="465" vertical-scroll-proportion="0.55632824">
               <folding />
             </state>
           </provider>
@@ -735,7 +730,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/beers_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="38" selection-start="285" selection-end="285" vertical-scroll-proportion="0.3783032">
+        <state line="25" column="36" selection-start="465" selection-end="465" vertical-scroll-proportion="0.55632824">
           <folding />
         </state>
       </provider>

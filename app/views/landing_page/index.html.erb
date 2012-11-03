@@ -3,8 +3,8 @@
 <p>Find me in app/views/landing_page/index.html.erb</p>
 
 <%= form_tag("/beers", :method => "get") do %>
-  <%= label_tag(:query, "Search for:") %>
-  <%= text_field_tag(:query) %>
+  <%= label_tag(:id, "Search for:") %>
+  <%= text_field_tag(:id) %>
   <%= submit_tag("Search") %>
 <% end %>
 

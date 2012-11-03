@@ -21,6 +21,12 @@
 	    </ul>	
       </nav>
     </header>
+    
+    <%= form_tag("/beers", :method => "get") do %>
+	  <%= label_tag(:id, "Search for:") %>
+	  <%= text_field_tag(:id) %>
+	  <%= submit_tag("Search") %>
+	<% end %>
 			
 	<!-- The Main content area can be used to create lots of different block areas.
 	As Jeffery Zeldman once said, "Content precedes design. Design in the absence of
@@ -96,3 +102,4 @@
       </footer>
     </div><!-- content -->
   </div><!-- container -->
+

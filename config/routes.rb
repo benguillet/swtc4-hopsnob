@@ -1,10 +1,10 @@
-Swtc4Hopscout::Application.routes.draw do
-  #get "landing_page/index"
+Swtc4Hopscout::Application.routes.draw do  #get "landing_page/index"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => 'landing_page#index'
 
+  resources :beers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

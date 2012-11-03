@@ -2,12 +2,27 @@
 <p>hopsnob rocks baby!</p>
 <p>Find me in app/views/landing_page/index.html.erb</p>
 
-<%= form_tag("/beers", :method => "get") do %>
-  <%= label_tag(:id, "Search for:") %>
-  <%= text_field_tag(:id) %>
-  <%= submit_tag("Search") %>
-<% end %>
+<!--<form action="" method="get">
+  <label for="id">Search for:</label>
+  <input id="id" name="id" type="text">
+  <input id="search_button" name="commit" type="submit" value="Search">
+</form>
 
-
-
-
+<script type="text/javascript">
+    $('#search_button').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: '/beers/' + $('#id').value(),
+            success: function(data) {
+            },
+            error: function(data) {
+                console.log(data.message);
+            }
+        });
+    });
+</script>-->
+<%= form_tag :controller => 'beers', :action => 'show', :method => 'get' do %>
+2      <%= text_field_tag :search, :id => 'search_field' %>
+3      <%= submit_tag "Search", :name => nil %> 
+5  <% end %> 

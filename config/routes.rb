@@ -4,7 +4,10 @@ Swtc4Hopscout::Application.routes.draw do  #get "landing_page/index"
   # just remember to delete public/index.html.
   root :to => 'landing_page#index'
 
-  resources :beers
+  get 'beers' => 'beers#index'
+  get 'beers/:id' => 'beers#show'
+  
+  #resources :beers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

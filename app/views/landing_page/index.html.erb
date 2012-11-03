@@ -1,3 +1,13 @@
 <h1>hopsnob!</h1>
 <p>hopsnob rocks baby!</p>
 <p>Find me in app/views/landing_page/index.html.erb</p>
+
+<%= form_tag("/beers", :method => "get") do %>
+  <%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+
+

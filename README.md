@@ -1,2 +1,2 @@
-swtc4-booze-ninja
+swtc4-hopscout
 =================

@@ -184,6 +184,7 @@ body {
 .row {
   width: 100%;
   margin-bottom: 1.25em;
+  padding: 0 0%;
   zoom: 1; }
   .row:after {
     /* Or @extend clearfix */
@@ -192,9 +193,7 @@ body {
     clear: both; }
   .row .column, .row .columns {
     margin-bottom: 2%;
-    min-height: 30px;
     text-align: center;
-    margin-left: 2%;
     }
 
 .alpha {
@@ -1774,7 +1773,7 @@ input[type="submit"].full-width, input[type="reset"].full-width, input[type="but
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
-
+*/
 /* #Tabs (activate in tabs.js)
 ================================================== */
 ul.tabs {
@@ -2697,3 +2696,4 @@ legend + .control-group {
     clear: none; } }
 /* @media screen and (min-width:984px) */
 /* @media screen and (min-width:1200px) */
+

@@ -66,12 +66,11 @@ Apache License: v2.0. http://www.apache.org/licenses/LICENSE-2.0
 ================================================== */
 html
 {
-	background: url(/assets/main-x.png) repeat-x 50% 100px;
+	background: url(/assets/bannerx.png) repeat-x 50% 100px;
 }
 .container {
   margin: 0 auto;
   padding: 0 auto;
-  max-width: 1200px;
   width: 100%;
   padding-top: 2%; }
 
@@ -100,7 +99,10 @@ html
 header[role="banner"] {
   width: 100%;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden; 
+  padding: 0 15%;
+  margin-bottom: 0;
+  }
 
 .logo {
   position: relative;
@@ -141,12 +143,18 @@ header a
   /* 2x =================================================== */ }
   
 /* ================= MAP STYLES ==================== */
+
 #map_canvas
 {
+	margin-top: -284px!important;
 	width: 100%;
-	height: 350px;
+	height: 450px;
 }
-
+#bodyHeadline
+{
+	margin-left: 0;
+	text-align: center;
+}
 #bodyHeadline h1
 {
 	text-transform: uppercase;
@@ -156,6 +164,158 @@ header a
 }
 #bodyHeadline p
 {
-	font-size: 20px;
+	font-size: 21px;
 	font-style: italic;
+}
+/* --------------------------------------------------
+	:: Grid
+	-------------------------------------------------- */
+	
+	/* Tablet screens */
+	@media only screen and (device-width: 768px), (device-width: 800px) {
+		
+		
+	}
+	
+	
+	/* Mobile */
+	@media only screen and (max-width: 767px) {
+		
+	body { -webkit-text-size-adjust: none; }
+	
+	header[role="banner"] 
+	{
+	  	width: 100%;
+	  	position: relative;
+	  	overflow: hidden; 
+	  	padding: 0 6%;
+  	}	
+	.menu-button
+	{	
+		position: absolute;
+		top: 0;
+		right: 10px;
+	}
+	#bodyHeadline h1
+	{
+		font-size: 62px;
+	}
+	#containSearch
+	{
+		padding: 0 6%;
+	}
+	
+	
+	}
+
+
+/* -------------------------------------------------- 
+	:: Mobile Visibility Affordances
+---------------------------------------------------*/
+	
+	
+	.show-on-phones { display: none !important; }	
+	.show-on-tablets { display: none !important; }
+	.show-on-desktops { display: block; }
+	
+	.hide-on-phones { display: block !important; }	
+	.hide-on-tablets { display: block !important; }
+	.hide-on-desktops { display: none; }
+	
+	
+	@media only screen and (device-width: 768px), only screen and (device-width: 1280px), only screen and (device-width: 800px) {
+		.hide-on-phones { display: block !important; }
+		.hide-on-tablets { display: none !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: none !important; }
+		.show-on-tablets { display: block !important; }
+		.show-on-desktops { display: none !important; }
+	}
+	
+		
+	@media only screen and (max-width: 767px) {
+		.hide-on-phones { display: none !important; }
+		.hide-on-tablets { display: block !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: block !important; }
+		.show-on-tablets { display: none !important; }
+		.show-on-desktops { display: none !important; }
+	}
+
+#whiteBack
+{
+	background: #efefef;
+	padding: 2% 3%;
+	-moz-border-radius: 6px 6px;
+	-webkit-border-radius: 6px 6px;
+	-ms-border-radius: 6px 6px;
+	-o-border-radius: 6px 6px;
+	border-radius: 6px 6px;
+	-moz-box-shadow: 1px 1px 8px #393939;
+	-webkit-box-shadow: 1px 1px 8px #393939;
+	-ms-box-shadow: 1px 1px 8px #393939;
+	-o-box-shadow: 1px 1px 8px #393939;
+	box-shadow: 1px 1px 8px #393939;	
+	position: relative;
+	z-index: 1000;
+}
+#whiteBack h3, #whiteBack form label
+{
+	font: 20px/25px Verdana, sans-serif;
+	color: #777;
+	margin-bottom: 14px;
+}
+#whiteBack hr
+{
+	margin: 20px 0 15px;
+}
+#whiteBack h4
+{
+	font: 18px/22px Verdana, sans-serif;
+	color: #af3c04;
+}
+#whiteBack input[type='text']
+{
+	font: 24px/24px Verdana, sans-serif;
+	background: #e3e3e3;
+	color: #777;
+	-moz-border-radius: 6px 6px;
+	-webkit-border-radius: 6px 6px;
+	-ms-border-radius: 6px 6px;
+	-o-border-radius: 6px 6px;
+	border-radius: 6px 6px;
+}
+
+#whiteBack input#search_button
+{
+	background: #af3c04;
+	color: #fff;
+	text-shadow: 1px 1px 3px #595959;
+	-moz-border-radius: 6px 6px;
+	-webkit-border-radius: 6px 6px;
+	-ms-border-radius: 6px 6px;
+	-o-border-radius: 6px 6px;
+	border-radius: 6px 6px;
+}
+#containSearch
+{
+	padding: 0 15%;
+	margin-top: 125px;
+}
+footer
+{
+	width: 100%;
+	height: 200px;
+	margin-top: -78px;
+	background: #330d01;
+}
+.left
+{
+	float: left;
+}
+.right
+{
+	float: right;
 }

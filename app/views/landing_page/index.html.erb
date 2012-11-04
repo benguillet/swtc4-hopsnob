@@ -4,17 +4,19 @@
   <!-- This is the header information. You can add things like logos and navigation here. -->
     <header role="banner" class="clearfix row">
     <div class="sixteen columns">
-    <div class="five columns">
-    	<a href="#">Who We Are</a>
-    </div>
-	<div class="logo six columns">
+    
+    	<a class="hide-on-phones left" href="#">Who We Are</a>
+    	<a class="hide-on-phones right"href="#">What We Do</a>
+	
+		<div style="position: relative;top: 15px;">
 		<center>
 	    <h1><a href="#"><img src="<%=image_path("logo.png")%>"></img></a></h1>
 	   <!-- CALLING AN IMAGE
 	   	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 	   -->
 	   </center>
-	</div>
+		</div>
+		
 	  <div class='menu-button'></div>
 	  <a href="#main" class="skip">Skip navigation</a>
 	  <!--<nav role="navigation" id="nav">
@@ -24,26 +26,38 @@
 
 	    </ul>	
    </nav>-->
-   <div class="five columns">
-   		<a href="#">What We Do</a>
-   </div>
+  
+   		
+  
    </div>
     </header>
-    <div class="row">
     	<div id="bodyHeadline" class="sixteen columns">
-    		<center>
+    		
     			<h1>Where My Beer At?</h1>
     		<p>Hopsnob helps you find the craft you've been craving.</p>
-    		</center>
+    		
     	</div>
-    </div>
-   <form action="/beers" method="get">
-    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
-        <label for="id">Search for:</label>
-        <input id="id" name="id" type="text">
-        <input id="search_button" name="commit" type="submit" value="Search">
-    </form>
-			
+   <div id="containSearch" class="row">
+   	<div id="whiteBack" class="sixteen columns">
+	   <h3>Search liquor stores near:</h3>
+	   <h4 id="addHolder">
+	   		<div id="location">
+				Your location will go here.
+			</div>
+			<div id="distance">
+				Distance from Liquor Store will go here.
+			</div>
+		</h4>
+	   <hr />
+	   <form action="/beers" method="get">
+	    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+	        <label for="id">I am looking for:</label>
+	        <input id="id" name="id" type="text">
+	        <input id="search_button" name="commit" type="submit" value="BEER ME">
+	    </form>
+	   
+	   </div>
+	</div>		
 	<!-- The Main content area can be used to create lots of different block areas.
 	As Jeffery Zeldman once said, "Content precedes design. Design in the absence of
 	content is not design, it's decoration." -->
@@ -56,22 +70,8 @@
       which slide show you would like. You may need to modify this if you do not want it to fill 
       the 960 grid. 
  	  For Example:-->
- 	  <center><h1>You are here:</h1></center>
  	  <section class="row">
  	  	<div class="sixteen columns">
- 	  		<form id="mapForm">
-			<input type="button" id="watch" value="Watch me">
-			<input type="button" id="clearWatch" value="Clear watch">
-			</form>
-			
-			<div id="location">
-			Your location will go here.
-			</div>
-			
-			<div id="distance">
-			Distance from Liquor Store will go here.
-			</div>
-			
 			<div id="map_canvas"></div>
  	  	</div>
  	  </section>
@@ -83,6 +83,7 @@
  	  </section>
 				
       <footer role="contentinfo" class="clearfix">
+      	<center><a href=""><img src=""></a></center>
       </footer>
     </div><!-- content -->
   </div><!-- container -->

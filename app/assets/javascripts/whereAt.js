@@ -95,40 +95,40 @@ function displayLocation(position) {
 // Uses the Spherical Law of Cosines to find the distance
 // between two lat/long points
 //
-// function computeDistance(startCoords, destCoords) {
-// 	var startLatRads = degreesToRadians(startCoords.latitude);
-// 	var startLongRads = degreesToRadians(startCoords.longitude);
-// 	var destLatRads = degreesToRadians(destCoords.latitude);
-// 	var destLongRads = degreesToRadians(destCoords.longitude);
+function computeDistance(startCoords, destCoords) {
+	var startLatRads = degreesToRadians(startCoords.latitude);
+	var startLongRads = degreesToRadians(startCoords.longitude);
+	var destLatRads = degreesToRadians(destCoords.latitude);
+	var destLongRads = degreesToRadians(destCoords.longitude);
 
-// 	var Radius = 6371; // radius of the Earth in km
-// 	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) + 
-// 					Math.cos(startLatRads) * Math.cos(destLatRads) *
-// 					Math.cos(startLongRads - destLongRads)) * Radius;
+	var Radius = 6371; // radius of the Earth in km
+	var distance = Math.acos(Math.sin(startLatRads) * Math.sin(destLatRads) + 
+					Math.cos(startLatRads) * Math.cos(destLatRads) *
+					Math.cos(startLongRads - destLongRads)) * Radius;
 
-// 	return distance;
+	return distance;
+}
+// function computerDistance(startCoords, destCoords) {
+// 	var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+// 	var origin2 = "Greenwich, England";
+// 	var destinationA = "Stockholm, Sweden";
+// 	var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+// var service = new google.maps.DistanceMatrixService();
+// service.getDistanceMatrix(
+//   {
+//     origins: [origin1, origin2],
+//     destinations: [destinationA, destinationB],
+//     travelMode: google.maps.TravelMode.DRIVING,
+//     avoidHighways: false,
+//     avoidTolls: false
+//   }, callback);
+
+// function callback(response, status) {
+//   // See Parsing the Results for
+//   // the basics of a callback function.
 // }
-function computerDistance(startCoords, destCoords) {
-	var origin1 = new google.maps.LatLng(55.930385, -3.118425);
-	var origin2 = "Greenwich, England";
-	var destinationA = "Stockholm, Sweden";
-	var destinationB = new google.maps.LatLng(50.087692, 14.421150);
-
-var service = new google.maps.DistanceMatrixService();
-service.getDistanceMatrix(
-  {
-    origins: [origin1, origin2],
-    destinations: [destinationA, destinationB],
-    travelMode: google.maps.TravelMode.DRIVING,
-    avoidHighways: false,
-    avoidTolls: false
-  }, callback);
-
-function callback(response, status) {
-  // See Parsing the Results for
-  // the basics of a callback function.
-}
-}
+// }
 
 function degreesToRadians(degrees) {
 	radians = (degrees * Math.PI)/180;

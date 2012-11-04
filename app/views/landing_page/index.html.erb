@@ -87,14 +87,32 @@
     </div><!-- content -->
   </div><!-- container -->
   <script type="text/javascript">
+    ids = {};
+    
     $.ajax({
         type: "GET",
         url: '/beers/',
         success: function(data) {
-        	if(data.length === 0)
-        	{
-        		
-        	}
+        	if ($.isEmptyObject(data)) {
+                alert("No beers in the database!");
+                return 0;
+            }
+            
+            var beers = [];
+            var beer_name = '';
+            for (var i = 0; i < data.length; ++i) {
+                beer_name = data[i]['brand'] + ' ' + data[i]['name'];
+                beers.push(beer_name);
+                ids[beer_name] = data[i]['id'];
+            }
+
+            console.log(beers);
+            console.log(ids);
+
+            $("#id").autocomplete({
+                source: beers
+            });
+
         },
         error: function(data) {
             console.log(data.message);
@@ -107,9 +125,10 @@
         var stores = document.createElement("div");
         stores.setAttribute('id', 'stores');
         clearMarkers();
+        console.log(ids[$('#id').val()]);
         $.ajax({
             type: "GET",
-            url: '/beers/' + $('#id').val(),
+            url: '/beers/' + ids[$('#id').val()],
             success: function(data) {
                 if ($.isEmptyObject(data)) {
                     alert("No stores found!");

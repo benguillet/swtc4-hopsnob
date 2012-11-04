@@ -1,4 +1,3 @@
-<%= javascript_include_tag "whereAt.js" %>
 <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <div class="container clearfix">
   <!-- This is the header information. You can add things like logos and navigation here. -->
@@ -22,11 +21,12 @@
       </nav>
     </header>
     
-    <%= form_tag("/beers", :method => "get") do %>
-	  <%= label_tag(:id, "Search for:") %>
-	  <%= text_field_tag(:id) %>
-	  <%= submit_tag("Search") %>
-	<% end %>
+   <form action="/beers" method="get">
+    <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+        <label for="id">Search for:</label>
+        <input id="id" name="id" type="text">
+        <input id="search_button" name="commit" type="submit" value="Search">
+    </form>
 			
 	<!-- The Main content area can be used to create lots of different block areas.
 	As Jeffery Zeldman once said, "Content precedes design. Design in the absence of
@@ -102,4 +102,30 @@
       </footer>
     </div><!-- content -->
   </div><!-- container -->
+  <script type="text/javascript">
+    $.ajax({
+        type: "GET",
+        url: '/beers/',
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(data) {
+            console.log(data.message);
+        }
+    });
+
+    $('#search_button').click(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "GET",
+            url: '/beers/' + $('#id').val(),
+            success: function(data) {
+                console.log(data);
+            },
+            error: function(data) {
+                console.log(data.message);
+            }
+        });
+    });
+  </script>
 

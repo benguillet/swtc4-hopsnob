@@ -13,16 +13,10 @@ window.onload = getMyLocation;
 
 function getMyLocation() {
 	if (navigator.geolocation) {
-
 		navigator.geolocation.getCurrentPosition(
 			displayLocation, 
 			displayError,
 			{enableHighAccuracy: true, timeout:9000});
-
-		var watchButton = document.getElementById("watch");
-		watchButton.onclick = watchLocation;
-		var clearWatchButton = document.getElementById("clearWatch");
-		clearWatchButton.onclick = clearWatch;
 	}
 	else {
 		alert("Oops, no geolocation support");
@@ -70,11 +64,19 @@ function displayLocation(position) {
 	var longitude = position.coords.longitude;
 
 	var div = document.getElementById("location");
-	div.innerHTML = position.coords;
-
-	var km = computeDistance(position.coords, ourCoords);
-	var distance = document.getElementById("distance");
-	distance.innerHTML = "You are " + km + " km from the WickedlySmart HQ";
+	div.innerHTML = "Minneapolis";
+	// var latLng = new google.maps.LatLng(position.coords);
+	
+	// geocoder = new google.maps.Geocoder();
+	// geocoder.geocode({'latLng': latLng}, function(results, status) {
+ //      if (status == google.maps.GeocoderStatus.OK) {
+ //        if (results[1]) {
+ //          	
+ //        }
+ //      } else {
+ //        alert("Geocoder failed due to: " + status);
+ //      }
+ //    });
 
 	if (map == null) {
 		showMap(position.coords);
@@ -88,6 +90,29 @@ function displayLocation(position) {
 		}
 	}
 }
+
+
+// function codeLatLng(var input) {
+//     var latlngStr = input.split(",",2);
+//     var lat = parseFloat(latlngStr[0]);
+//     var lng = parseFloat(latlngStr[1]);
+//     var latlng = new google.maps.LatLng(lat, lng);
+//     geocoder.geocode({'latLng': latlng}, function(results, status) {
+//       if (status == google.maps.GeocoderStatus.OK) {
+//         if (results[1]) {
+//           map.setZoom(11);
+//           marker = new google.maps.Marker({
+//               position: latlng,
+//               map: map
+//           });
+//           infowindow.setContent(results[1].formatted_address);
+//           infowindow.open(map, marker);
+//         }
+//       } else {
+//         alert("Geocoder failed due to: " + status);
+//       }
+//     });
+//   }
 
 
 // --------------------- Ready Bake ------------------

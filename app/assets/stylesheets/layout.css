@@ -146,9 +146,10 @@ header a
 
 #map_canvas
 {
-	margin-top: -284px!important;
+	margin-top: -175px!important;
 	width: 100%;
 	height: 450px;
+	border-top: 4px solid #eca71a;
 }
 #bodyHeadline
 {
@@ -167,83 +168,6 @@ header a
 	font-size: 21px;
 	font-style: italic;
 }
-/* --------------------------------------------------
-	:: Grid
-	-------------------------------------------------- */
-	
-	/* Tablet screens */
-	@media only screen and (device-width: 768px), (device-width: 800px) {
-		
-		
-	}
-	
-	
-	/* Mobile */
-	@media only screen and (max-width: 767px) {
-		
-	body { -webkit-text-size-adjust: none; }
-	
-	header[role="banner"] 
-	{
-	  	width: 100%;
-	  	position: relative;
-	  	overflow: hidden; 
-	  	padding: 0 6%;
-  	}	
-	.menu-button
-	{	
-		position: absolute;
-		top: 0;
-		right: 10px;
-	}
-	#bodyHeadline h1
-	{
-		font-size: 62px;
-	}
-	#containSearch
-	{
-		padding: 0 6%;
-	}
-	
-	
-	}
-
-
-/* -------------------------------------------------- 
-	:: Mobile Visibility Affordances
----------------------------------------------------*/
-	
-	
-	.show-on-phones { display: none !important; }	
-	.show-on-tablets { display: none !important; }
-	.show-on-desktops { display: block; }
-	
-	.hide-on-phones { display: block !important; }	
-	.hide-on-tablets { display: block !important; }
-	.hide-on-desktops { display: none; }
-	
-	
-	@media only screen and (device-width: 768px), only screen and (device-width: 1280px), only screen and (device-width: 800px) {
-		.hide-on-phones { display: block !important; }
-		.hide-on-tablets { display: none !important; }
-		.hide-on-desktops { display: block !important; }
-		
-		.show-on-phones { display: none !important; }
-		.show-on-tablets { display: block !important; }
-		.show-on-desktops { display: none !important; }
-	}
-	
-		
-	@media only screen and (max-width: 767px) {
-		.hide-on-phones { display: none !important; }
-		.hide-on-tablets { display: block !important; }
-		.hide-on-desktops { display: block !important; }
-		
-		.show-on-phones { display: block !important; }
-		.show-on-tablets { display: none !important; }
-		.show-on-desktops { display: none !important; }
-	}
-
 #whiteBack
 {
 	background: #efefef;
@@ -308,8 +232,11 @@ footer
 {
 	width: 100%;
 	height: 200px;
-	margin-top: -78px;
 	background: #330d01;
+}
+footer img
+{
+	margin-top: -25px;
 }
 .left
 {
@@ -319,3 +246,95 @@ footer
 {
 	float: right;
 }
+span.ui-helper-hidden-accessible
+{
+	display: none!important;
+}
+#no-pad
+{
+	margin-bottom: 0px!important;
+}
+/* --------------------------------------------------
+	:: Grid
+	-------------------------------------------------- */
+	
+	/* Tablet screens */
+	@media only screen and (device-width: 768px), (device-width: 800px) {
+		
+		
+	}
+	
+	
+	/* Mobile */
+	@media only screen and (max-width: 767px) {
+		
+	body { -webkit-text-size-adjust: none; }
+	
+	header[role="banner"] 
+	{
+	  	width: 100%;
+	  	position: relative;
+	  	overflow: hidden; 
+	  	padding: 0 6%;
+  	}	
+	.menu-button
+	{	
+		position: absolute;
+		top: 0;
+		right: 10px;
+	}
+	#bodyHeadline
+	{
+		margin: 15px 0;
+	}
+	#bodyHeadline h1
+	{
+		font-size: 62px;
+	}
+	#containSearch
+	{
+		padding: 0 6%;
+		margin-top: 25px!important;
+	}
+	#map_canvas
+	{
+		margin-top: -97px!important;
+	}
+	
+	}
+
+
+/* -------------------------------------------------- 
+	:: Mobile Visibility Affordances
+---------------------------------------------------*/
+	
+	
+	.show-on-phones { display: none !important; }	
+	.show-on-tablets { display: none !important; }
+	.show-on-desktops { display: block; }
+	
+	.hide-on-phones { display: block !important; }	
+	.hide-on-tablets { display: block !important; }
+	.hide-on-desktops { display: none; }
+	
+	
+	@media only screen and (device-width: 768px), only screen and (device-width: 1280px), only screen and (device-width: 800px) {
+		.hide-on-phones { display: block !important; }
+		.hide-on-tablets { display: none !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: none !important; }
+		.show-on-tablets { display: block !important; }
+		.show-on-desktops { display: none !important; }
+	}
+	
+		
+	@media only screen and (max-width: 767px) {
+		.hide-on-phones { display: none !important; }
+		.hide-on-tablets { display: block !important; }
+		.hide-on-desktops { display: block !important; }
+		
+		.show-on-phones { display: block !important; }
+		.show-on-tablets { display: none !important; }
+		.show-on-desktops { display: none !important; }
+	}

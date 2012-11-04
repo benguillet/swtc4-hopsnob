@@ -1773,7 +1773,6 @@ input[type="submit"].full-width, input[type="reset"].full-width, input[type="but
 button::-moz-focus-inner, input::-moz-focus-inner {
   border: 0;
   padding: 0; }
-*/
 /* #Tabs (activate in tabs.js)
 ================================================== */
 ul.tabs {

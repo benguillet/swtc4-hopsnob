@@ -3,11 +3,8 @@
 <div class="container clearfix">
   <!-- This is the header information. You can add things like logos and navigation here. -->
     <header role="banner" class="clearfix">
-	  <div class="logo">
-	    <h1>hopsnob</h1>
-	   <!-- CALLING AN IMAGE
-	   	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
-	   -->
+	  <div class="logo">   
+	   	<%= link_to image_tag("logo_200.png", alt: "hopsnob"), '/' %>
 	  </div>
 	  <div class='menu-button'></div>
 	  <a href="#main" class="skip">Skip navigation</a>
@@ -31,7 +28,7 @@
 	As Jeffery Zeldman once said, "Content precedes design. Design in the absence of
 	content is not design, it's decoration." -->
 			
-    <div role="main" class="content clearfix">
+    <div id="main" role="main" class="content clearfix">
  	  <hr class="large">
  	  <section class="doc-section row clearfix">
 	
@@ -60,38 +57,7 @@
  	  	</div>
  	  </section>
  		
- 		
- 		<div class="rslides_container">
- 	      <ul class="rslides" id="slider1">
- 	        <li><img src="http://placehold.it/1200x300" alt="" /></li>
- 	        <li><img src="http://placehold.it/1200x300" alt="" /></li>
- 	        <li><img src="http://placehold.it/1200x300" alt="" /></li>
- 	      </ul> 
-		</div>
-
-		<!-- Columns 
-		The columns have changed. You can now use them in a much more fluid way. In case you need 
-		a bit of extra spacing we've included a class called alt-spacing. 
-		-->
-		Example 1:
-		<section class="row">
-		<div class="ten columns">10</div>
-		<div class="six columns">6</div>
-		</section> 
-		
-		Example 2:
-		<section class="row">
-		<div class="five columns"></div>
-		<div class="five columns alt-spacing"></div>
-		<div class="five columns alt-spacing"></div>
-		</section>
-		
-		Example 3:
-		<section class="gallery row">
-		<div class="four columns"></div>
-		<div class="four columns"></div>
-		<div class="four columns"></div>
-		</section>
+        <div id="stores"></div>
 		
 		
 
@@ -115,11 +81,29 @@
 
     $('#search_button').click(function(e) {
         e.preventDefault();
+        $("#stores").remove();
+        var stores = document.createElement("div");
+        stores.setAttribute('id', 'stores');
+
         $.ajax({
             type: "GET",
             url: '/beers/' + $('#id').val(),
             success: function(data) {
-                console.log(data);
+                if (data.length === 0) {
+                    $("#stores").append('<p>No stores found!</p>');
+                    return 0;
+                }
+                for (var i = 0; i < data.length; ++i) {
+                    var storeName = document.createElement("h4");
+                    storeName.setAttribute('class', 'store_name');
+                    storeName.innerHTML = data[i]['name'];
+                    var storeAddress = document.createElement("p");
+                    storeAddress.setAttribute('class', 'store_address');
+                    storeAddress.innerHTML = data[i]['address'];
+                    stores.appendChild(storeName);
+                    stores.appendChild(storeAddress);
+                }
+                $("#main").append(stores);
             },
             error: function(data) {
                 console.log(data.message);

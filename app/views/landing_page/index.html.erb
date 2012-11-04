@@ -99,7 +99,7 @@
                     storeName.innerHTML = data[i]['name'];
                     var storeAddress = document.createElement("p");
                     storeAddress.setAttribute('class', 'store_address');
-                    storeAddress.innerHTML = data[i]['address'];
+                    storeAddress.innerHTML = data[i]['address'] + ', ' + data[i]['city'] + ', ' + data[i]['state'] + ' ' + data[i]['zip_code'];
                     stores.appendChild(storeName);
                     stores.appendChild(storeAddress);
                 }

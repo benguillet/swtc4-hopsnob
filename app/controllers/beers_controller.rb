@@ -3,6 +3,7 @@ class BeersController < ApplicationController
     @beers = Beer.all
     respond_to do |format|
       format.json { render :json => @beers }
+      format.html
     end
   end
 
@@ -22,6 +23,7 @@ class BeersController < ApplicationController
         format.json { render :json => @beer }
       else
         format.json { render :json => {:status => 'error', :message => "trying to get a that does not exit, id = #{beer_id}"} }
+        format.html
       end
     end
   end

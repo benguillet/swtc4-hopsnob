@@ -59,8 +59,8 @@
       which slide show you would like. You may need to modify this if you do not want it to fill 
       the 960 grid. 
  	  For Example:-->
- 	  <section class="row">
- 	  	<div class="sixteen columns">
+ 	  <section id="no-pad" class="row">
+ 	  	<div id="no-pad" class="sixteen columns">
 			<div id="map_canvas"></div>
  	  	</div>
  	  </section>
@@ -83,11 +83,12 @@
 			</div>
 	</section>
 				
-      <footer role="contentinfo" class="clearfix">
+       <footer role="contentinfo" class="clearfix">
       	<center><a href="#"><img src="<%=image_path("footer-logo.png")%>"></a></center>
       </footer>
     </div><!-- content -->
   </div><!-- container -->
+
   <script type="text/javascript">
     ids = {};
     
@@ -164,3 +165,5 @@
         });
      });
   </script>
+  
+ 

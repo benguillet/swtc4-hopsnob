@@ -81,9 +81,10 @@ function degreesToRadians(degrees) {
 // ------------------ End Ready Bake -----------------
 
 function showMap(coords) {
-	var googleLatAndLong = new google.maps.LatLng(coords.latitude, coords.longitude);
+	var googleLatAndLong = new google.maps.LatLng(coords.latitude, 
+												  coords.longitude);
 	var mapOptions = {
-		zoom: 15,
+		zoom: 10,
 		center: googleLatAndLong,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};

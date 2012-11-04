@@ -84,13 +84,13 @@
         $("#stores").remove();
         var stores = document.createElement("div");
         stores.setAttribute('id', 'stores');
-
+        clearMarkers();
         $.ajax({
             type: "GET",
             url: '/beers/' + $('#id').val(),
             success: function(data) {
-                if (data.length === 0) {
-                    $("#stores").append('<p>No stores found!</p>');
+                if ($.isEmptyObject(data)) {
+                    alert("No stores found!");
                     return 0;
                 }
                 for (var i = 0; i < data.length; ++i) {
@@ -103,7 +103,10 @@
                     storeAddress.innerHTML = storeAddressContent;
                     stores.appendChild(storeName);
                     stores.appendChild(storeAddress);
-                    getCoordinates(storeAddressContent);
+                    getCoordinates(storeAddressContent, function(storeCoords) {
+                        var distance = computeDistance($('#location').text(), storeCoords);
+                        //console.log(distance);
+                    });
                 }
                 $("#main").append(stores);
             },

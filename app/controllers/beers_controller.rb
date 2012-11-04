@@ -1,9 +1,7 @@
 class BeersController < ApplicationController
   def index
     @beers = Beer.all
-
     respond_to do |format|
-      format.html # index.html.erb
       format.json { render :json => @beers }
     end
   end
@@ -15,11 +13,16 @@ class BeersController < ApplicationController
   end
 
   def show
-    @beer = Beer.find(params[:id])
+    beer_id = params[:id]
+    @beer = Beer.where(id: beer_id)
     @products = Product.all(:include => "beers")
+    
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @beer }
+      if !@beer.nil?
+        format.json { render :json => @beer }
+      else
+        format.json { render :json => {:status => 'error', :message => "trying to get a that does not exit, id = #{beer_id}"} }
+      end
     end
   end
 

@@ -72,7 +72,7 @@
            <tr>
                <th scope="col">Store Name</th>
                <th>Address</th>
-               <th>Distance (miles)</th>
+               <th>Stock</th>
            </tr>
         </thead>
         <tbody id="row_stores">
@@ -141,12 +141,12 @@
                     var storeAddressContent = data[i]['address'] + ', ' + data[i]['city'] + ', ' + data[i]['state'] + ' ' + data[i]['zip_code'];
                     var td_address = document.createElement("td");
                     td_address.innerHTML = storeAddressContent;
-                    var td_distance = document.createElement("td");
-                    td_distance.innerHTML = Math.random() * 3;
+                    var td_stock = document.createElement("td");
+                    td_stock.innerHTML = "yes";
                         
                     tr.appendChild(th);
                     tr.appendChild(td_address);
-                    tr.appendChild(td_distance);
+                    tr.appendChild(td_stock);
                     $('#row_stores').append(tr);
                     $("#stores").show();
                     

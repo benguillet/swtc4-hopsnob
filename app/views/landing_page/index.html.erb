@@ -99,9 +99,11 @@
                     storeName.innerHTML = data[i]['name'];
                     var storeAddress = document.createElement("p");
                     storeAddress.setAttribute('class', 'store_address');
-                    storeAddress.innerHTML = data[i]['address'] + ', ' + data[i]['city'] + ', ' + data[i]['state'] + ' ' + data[i]['zip_code'];
+                    var storeAddressContent = data[i]['address'] + ', ' + data[i]['city'] + ', ' + data[i]['state'] + ' ' + data[i]['zip_code'];
+                    storeAddress.innerHTML = storeAddressContent;
                     stores.appendChild(storeName);
                     stores.appendChild(storeAddress);
+                    getCoordinates(storeAddressContent);
                 }
                 $("#main").append(stores);
             },

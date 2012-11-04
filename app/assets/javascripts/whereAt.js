@@ -28,6 +28,51 @@ function getMyLocation() {
 	}
 }
 
+function getCoordinates(address) {
+	var contentString = '<div id="content">'+
+				    '<div id="siteNotice">'+
+				    '</div>'+
+				    '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
+				    '<div id="bodyContent">'+
+				    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+				    'sandstone rock formation in the southern part of the '+
+				    'Northern Territory, central Australia. It lies 335 km (208 mi) '+
+				    'south west of the nearest large town, Alice Springs; 450 km '+
+				    '(280 mi) by road. Kata Tjuta and Uluru are the two major '+
+				    'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+				    'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+				    'Aboriginal people of the area. It has many springs, waterholes, '+
+				    'rock caves and ancient paintings. Uluru is listed as a World '+
+				    'Heritage Site.</p>'+
+				    '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+				    'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
+				    '</div>'+
+				    '</div>';
+
+	var infowindow = new google.maps.InfoWindow({
+	    content: contentString
+	});
+
+
+	var geocoder = new google.maps.Geocoder();
+
+	geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+            map: map,
+            animation: google.maps.Animation.DROP,
+            position: results[0].geometry.location
+        });
+        google.maps.event.addListener(marker, 'click', function() {
+  			infowindow.open(map,marker);
+  		});
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+}
+
 function displayLocation(position) {
 	var latitude = position.coords.latitude;
 	var longitude = position.coords.longitude;
@@ -83,8 +128,11 @@ function degreesToRadians(degrees) {
 function showMap(coords) {
 	var googleLatAndLong = new google.maps.LatLng(coords.latitude, 
 												  coords.longitude);
+	var googleLatAndLong = new google.maps.LatLng(coords.latitude, 
+												  coords.longitude);
+
 	var mapOptions = {
-		zoom: 10,
+		zoom: 12,
 		center: googleLatAndLong,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};

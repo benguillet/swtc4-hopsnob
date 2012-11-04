@@ -41,4 +41,11 @@ class BeersController < ApplicationController
   def destroy
   end
 
+  def search_beer
+    @beers=Beer.where("LOWER(name) LIKE ?", "%#{params[:name]}%").limit(10).order(:name)
+
+    respond_to do |format|
+      format.json {render :json => @beers}
+    end
+  end
 end

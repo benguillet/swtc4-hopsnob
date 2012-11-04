@@ -4,7 +4,7 @@ Swtc4Hopscout::Application.routes.draw do  #get "landing_page/index"
   # just remember to delete public/index.html.
   root :to => 'landing_page#index'
 
-  get 'beers' => 'beers#index'
+  get 'beers' => 'beers#search_beer'
   get 'beers/:id' => 'beers#show'
 
   get 'who-are-we' => 'who_are_we#index'

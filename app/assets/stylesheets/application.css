@@ -14,6 +14,11 @@
  */
 /* ================ MAP STYLES ====================== */
 
+*= require_self
+*= require_tree .
+*= require_style
+*= require jquery-ui/ui-lightness
+*/
 
 form#mapForm, div#location, div#distance {
 	padding: 5px;

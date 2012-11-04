@@ -9,11 +9,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
  */
-/* ================ MAP STYLES ====================== */
 
+<<<<<<< HEAD
 *= require_self
 *= require_tree .
 *= require_style
@@ -35,3 +34,5 @@ div#map {
 	-o-filter: grayscale(100%);
 	filter: grayscale(100%);
 }
+=======
+>>>>>>> d6295195df7335a12c0c6d27fa7f271e78ced715

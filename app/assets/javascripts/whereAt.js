@@ -7,6 +7,7 @@ var ourCoords =  {
 	longitude: -122.52099
 };
 var prevCoords = null;
+var markersArray = [];
 
 window.onload = getMyLocation;
 
@@ -28,49 +29,40 @@ function getMyLocation() {
 	}
 }
 
-function getCoordinates(address) {
-	var contentString = '<div id="content">'+
-				    '<div id="siteNotice">'+
-				    '</div>'+
-				    '<h2 id="firstHeading" class="firstHeading">Uluru</h2>'+
-				    '<div id="bodyContent">'+
-				    '<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
-				    'sandstone rock formation in the southern part of the '+
-				    'Northern Territory, central Australia. It lies 335 km (208 mi) '+
-				    'south west of the nearest large town, Alice Springs; 450 km '+
-				    '(280 mi) by road. Kata Tjuta and Uluru are the two major '+
-				    'features of the Uluru - Kata Tjuta National Park. Uluru is '+
-				    'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
-				    'Aboriginal people of the area. It has many springs, waterholes, '+
-				    'rock caves and ancient paintings. Uluru is listed as a World '+
-				    'Heritage Site.</p>'+
-				    '<p>Attribution: Uluru, <a href="http://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-				    'http://en.wikipedia.org/w/index.php?title=Uluru</a> (last visited June 22, 2009).</p>'+
-				    '</div>'+
-				    '</div>';
+function getCoordinates(address, callback) {
+	var contentString = 'test';
 
 	var infowindow = new google.maps.InfoWindow({
 	    content: contentString
 	});
-
 
 	var geocoder = new google.maps.Geocoder();
 
 	geocoder.geocode( { 'address': address}, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
         map.setCenter(results[0].geometry.location);
+        callback(results[0].geometry.location);
         var marker = new google.maps.Marker({
             map: map,
             animation: google.maps.Animation.DROP,
             position: results[0].geometry.location
         });
+        markersArray.push(marker);
         google.maps.event.addListener(marker, 'click', function() {
   			infowindow.open(map,marker);
   		});
       } else {
-        alert("Geocode was not successful for the following reason: " + status);
+			alert("Geocode was not successful for the following reason: " + status);
       }
     });
+}
+
+function clearMarkers() {
+  if (markersArray) {
+    for (i in markersArray) {
+      markersArray[i].setMap(null);
+    }
+  }
 }
 
 function displayLocation(position) {
@@ -78,8 +70,7 @@ function displayLocation(position) {
 	var longitude = position.coords.longitude;
 
 	var div = document.getElementById("location");
-	div.innerHTML = "You are at Latitude: " + latitude + ", Longitude: " + longitude;
-	div.innerHTML += " (with " + position.coords.accuracy + " meters accuracy)";
+	div.innerHTML = position.coords;
 
 	var km = computeDistance(position.coords, ourCoords);
 	var distance = document.getElementById("distance");
@@ -117,6 +108,27 @@ function computeDistance(startCoords, destCoords) {
 
 	return distance;
 }
+// function computerDistance(startCoords, destCoords) {
+// 	var origin1 = new google.maps.LatLng(55.930385, -3.118425);
+// 	var origin2 = "Greenwich, England";
+// 	var destinationA = "Stockholm, Sweden";
+// 	var destinationB = new google.maps.LatLng(50.087692, 14.421150);
+
+// var service = new google.maps.DistanceMatrixService();
+// service.getDistanceMatrix(
+//   {
+//     origins: [origin1, origin2],
+//     destinations: [destinationA, destinationB],
+//     travelMode: google.maps.TravelMode.DRIVING,
+//     avoidHighways: false,
+//     avoidTolls: false
+//   }, callback);
+
+// function callback(response, status) {
+//   // See Parsing the Results for
+//   // the basics of a callback function.
+// }
+// }
 
 function degreesToRadians(degrees) {
 	radians = (degrees * Math.PI)/180;
@@ -134,25 +146,15 @@ function showMap(coords) {
 		center: googleLatAndLong,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
+
 	var mapDiv = document.getElementById("map_canvas");
+
 	map = new google.maps.Map(mapDiv, mapOptions);
 
 	// add the user marker
 	var title = "Your Location";
 	var content = "You are here: " + coords.latitude + ", " + coords.longitude;
 	addMarker(map, googleLatAndLong, title, content);
-
-/*
-	// add the WickedlySmart HQ marker
-	var wsLatLong = new google.maps.LatLng(
-							ourCoords.latitude, 
-							ourCoords.longitude);
-	addMarker(map, wsLatLong, "WickedlySmart HQ", 
-							"WickedlySmart HQ latitude: " + 
-							ourCoords.latitude + 
-							", longitude: " +
-							ourCoords.longitude);
-*/
 }
 
 function addMarker(map, latlong, title, content) {

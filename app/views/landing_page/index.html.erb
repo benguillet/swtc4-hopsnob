@@ -136,10 +136,15 @@
                     return 0;
                 }
                 for (var i = 0; i < data.length; ++i) {
+                    var a = document.createElement("a");
                     var tr = document.createElement("tr");
                     var th = document.createElement("th");
                     th.setAttribute('scope', 'row');
-                    th.innerHTML = data[i]['name'];
+                    a.title = data[i]['name'];
+                    a.innerHTML = a.title;
+                    a.href = 'https://www.dropbox.com/s/gdzk8nvcw2ehrko/liqprofile.png';
+                    console.log(a);
+                    th.appendChild(a);
                     var storeAddressContent = data[i]['address'] + ', ' + data[i]['city'] + ', ' + data[i]['state'] + ' ' + data[i]['zip_code'];
                     var td_address = document.createElement("td");
                     td_address.innerHTML = storeAddressContent;

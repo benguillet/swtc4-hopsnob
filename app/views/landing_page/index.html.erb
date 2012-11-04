@@ -2,21 +2,41 @@
 <%= javascript_include_tag "whereAt.js" %>
 <div class="container clearfix">
   <!-- This is the header information. You can add things like logos and navigation here. -->
-    <header role="banner" class="clearfix">
-	  <div class="logo">   
-	   	<%= link_to image_tag("logo_200.png", alt: "hopsnob"), '/' %>
-	  </div>
+    <header role="banner" class="clearfix row">
+    <div class="sixteen columns">
+    <div class="five columns">
+    	<a href="#">Who We Are</a>
+    </div>
+	<div class="logo six columns">
+		<center>
+	    <h1><a href="#"><img src="<%=image_path("logo.png")%>"></img></a></h1>
+	   <!-- CALLING AN IMAGE
+	   	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+	   -->
+	   </center>
+	</div>
 	  <div class='menu-button'></div>
 	  <a href="#main" class="skip">Skip navigation</a>
-	  <nav role="navigation" id="nav">
+	  <!--<nav role="navigation" id="nav">
 	    <ul>
 		  <li class="top-level"><a href="who-are-we">Who are we?</a></li>
 		  <li class="top-level"><a href="contact-us">Contact us</a></li>
 
 	    </ul>	
-      </nav>
+   </nav>-->
+   <div class="five columns">
+   		<a href="#">What We Do</a>
+   </div>
+   </div>
     </header>
-    
+    <div class="row">
+    	<div id="bodyHeadline" class="sixteen columns">
+    		<center>
+    			<h1>Where My Beer At?</h1>
+    		<p>Hopsnob helps you find the craft you've been craving.</p>
+    		</center>
+    	</div>
+    </div>
    <form action="/beers" method="get">
     <div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
         <label for="id">Search for:</label>
@@ -29,7 +49,6 @@
 	content is not design, it's decoration." -->
 			
     <div id="main" role="main" class="content clearfix">
- 	  <hr class="large">
  	  <section class="doc-section row clearfix">
 	
  	  <!-- Slider
@@ -50,16 +69,16 @@
 			</div>
 			
 			<div id="distance">
-			Distance from WickedlySmart HQ will go here.
+			Distance from Liquor Store will go here.
 			</div>
 			
-			<div id="map"></div>
+			<div id="map_canvas"></div>
  	  	</div>
  	  </section>
- 		
-        <div id="stores"></div>
 		
-		
+		<div id="stores">
+			
+		</div>
 
  	  </section>
 				
@@ -72,7 +91,10 @@
         type: "GET",
         url: '/beers/',
         success: function(data) {
-            console.log(data);
+        	if(data.length === 0)
+        	{
+        		
+        	}
         },
         error: function(data) {
             console.log(data.message);
@@ -114,6 +136,6 @@
                 console.log(data.message);
             }
         });
-    });
+     });
   </script>
 

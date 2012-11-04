@@ -191,11 +191,10 @@ body {
     display: table;
     clear: both; }
   .row .column, .row .columns {
-    margin-bottom: 2%; 
-    background: #303030;
-    color: #fff;
-    text-align: center; 
+    margin-bottom: 2%;
     min-height: 30px;
+    text-align: center;
+    margin-left: 2%;
     }
 
 .alpha {
@@ -1124,7 +1123,6 @@ readers do not read off random characters that represent icons */
 
 .icon-user-md:before {
   content: "\f200"; }
-
 /* #Links
 ================================================== */
 a {

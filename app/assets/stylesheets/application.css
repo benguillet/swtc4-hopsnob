@@ -9,19 +9,6 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require_tree .
  */
-/* ================ MAP STYLES ====================== */
 
-form#mapForm, div#location, div#distance {
-	padding: 5px;
-}
-
-div#map {
-	margin: 5px;
-	width: 99%;
-	height: 400px;
-	border: 1px solid black;
-	
-}

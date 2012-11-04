@@ -142,12 +142,13 @@ function showMap(coords) {
 												  coords.longitude);
 
 	var mapOptions = {
-		zoom: 12,
+		zoom: 13,
 		center: googleLatAndLong,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
 
-	var mapDiv = document.getElementById("map");
+	var mapDiv = document.getElementById("map_canvas");
+
 	map = new google.maps.Map(mapDiv, mapOptions);
 
 	// add the user marker
@@ -166,7 +167,7 @@ function addMarker(map, latlong, title, content) {
 	var marker = new google.maps.Marker(markerOptions);
 
 	var infoWindowOptions = {
-		content: content,
+		content: 'This is just a test',
 		position: latlong
 	};
 

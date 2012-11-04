@@ -15,14 +15,18 @@ class BeersController < ApplicationController
 
   def show
     beer_id = params[:id]
-    @beer = Beer.where(id: beer_id)
-    @products = Product.all(:include => "beers")
+    products = Product.where(beer_id: beer_id)
+    
+    liquor_store_ids = []
+    products.each { |product| liquor_store_ids.push(product[:liquor_store_id]) }
+
+    @liquor_stores = LiquorStore.find(liquor_store_ids)
     
     respond_to do |format|
-      if !@beer.nil?
-        format.json { render :json => @beer }
+      if !@liquor_stores.nil?
+        format.json { render :json => @liquor_stores }
       else
-        format.json { render :json => {:status => 'error', :message => "trying to get a that does not exit, id = #{beer_id}"} }
+        format.json { render :json => {:status => 'error', :message => "trying to get a store that does not exit, id = #{liquor_store_id}"} }
         format.html
       end
     end

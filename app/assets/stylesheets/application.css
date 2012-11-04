@@ -13,6 +13,8 @@
  *= require_tree .
  */
 /* ================ MAP STYLES ====================== */
+
+
 form#mapForm, div#location, div#distance {
 	padding: 5px;
 }

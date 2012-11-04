@@ -9,10 +9,12 @@
 #  item_type       :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  liquor_store_id :integer
+#  beer_id         :integer
 #
 
 class Product < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :beer_id, :liquor_store_id
   belongs_to :beers
   has_and_belongs_to_many :liquor_stores
 end

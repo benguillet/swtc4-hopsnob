@@ -17,6 +17,6 @@
 #
 
 class Beer < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :brand, :name, :color
   has_many :products
 end

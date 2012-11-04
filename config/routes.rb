@@ -6,6 +6,9 @@ Swtc4Hopscout::Application.routes.draw do  #get "landing_page/index"
 
   get 'beers' => 'beers#index'
   get 'beers/:id' => 'beers#show'
+
+  get 'who-are-we' => 'who_are_we#index'
+  get 'contact-us' => 'contact_us#index'
   
   #resources :beers
   # The priority is based upon order of creation:

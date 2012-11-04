@@ -145,8 +145,9 @@
                     stores.appendChild(storeName);
                     stores.appendChild(storeAddress);
                     getCoordinates(storeAddressContent, function(storeCoords) {
-                        var distance = computeDistance($('#location').text(), storeCoords);
-                        //console.log(distance);
+                        //var distance = computeDistance($('#location').text(), storeCoords);
+                        //console.log(storeCoords);
+                        //console.log($('#location').text());
                     });
                 }
                 $("#main").append(stores);

@@ -7,7 +7,7 @@ Swtc4Hopscout::Application.routes.draw do  #get "landing_page/index"
   get 'beers' => 'beers#index'
   get 'beers/:id' => 'beers#show'
 
-  get 'who-are-we' => 'whoare_we#index'
+  get 'who-are-we' => 'who-are-we#index'
   get 'contact-us' => 'contact-us#index'
   
   #resources :beers

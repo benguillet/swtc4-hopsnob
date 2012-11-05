@@ -18,6 +18,6 @@
 #
 
 class LiquorStore < ActiveRecord::Base
-  attr_accessible :name, :address
+  attr_accessible :name, :address, :city, :zip_code, :state
   has_and_belongs_to_many :products
 end

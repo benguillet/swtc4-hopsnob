@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121104022719) do
+ActiveRecord::Schema.define(:version => 20121105192818) do
 
   create_table "beers", :force => true do |t|
     t.string   "brand"
     t.string   "name"
-    t.string   "color"
+    t.string   "style"
     t.string   "country"
     t.string   "city"
     t.string   "state"

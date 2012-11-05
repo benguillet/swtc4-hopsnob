@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  brand      :string(255)
 #  name       :string(255)
-#  color      :string(255)
+#  style      :string(255)
 #  country    :string(255)
 #  city       :string(255)
 #  state      :string(255)

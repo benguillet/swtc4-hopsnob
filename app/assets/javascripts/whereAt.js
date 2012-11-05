@@ -64,19 +64,19 @@ function displayLocation(position) {
 	var longitude = position.coords.longitude;
 
 	var div = document.getElementById("location");
-	div.innerHTML = "Minneapolis";
-	// var latLng = new google.maps.LatLng(position.coords);
 	
-	// geocoder = new google.maps.Geocoder();
-	// geocoder.geocode({'latLng': latLng}, function(results, status) {
- //      if (status == google.maps.GeocoderStatus.OK) {
- //        if (results[1]) {
- //          	
- //        }
- //      } else {
- //        alert("Geocoder failed due to: " + status);
- //      }
- //    });
+	var latLng = new google.maps.LatLng(latitude, longitude);
+
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'latLng': latLng}, function(results, status) {
+	     if (status == google.maps.GeocoderStatus.OK) {
+	       if (results[0]) {
+	         	div.innerHTML = results[0]['formatted_address'];
+	       }
+	     } else {
+	       alert("Geocoder failed due to: " + status);
+	     }
+	   });
 
 	if (map == null) {
 		showMap(position.coords);

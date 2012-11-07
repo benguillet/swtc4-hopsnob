@@ -19,3 +19,10 @@
 # l = LiquorStore.create(name: 'Northfield Liquor Store', address: '116 5th Street West', city: 'Northfield', state:'MN', zip_code: '55057')
 # b = Beer.create(brand: 'Surly Brewing', name: 'Bender')
 # p = Product.create(beer_id: 3, liquor_store_id: 3)
+
+# begin
+#     Liquor_store = Struct.new(:name,:address,:city,:state,:zip_code,:phone_number,:email,:website)
+
+
+# rescue
+# end

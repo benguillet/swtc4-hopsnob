@@ -46,7 +46,7 @@ function getCoordinates(address, callback) {
   			infowindow.open(map,marker);
   		});
       } else {
-			alert("Geocode was not successful for the following reason: " + status);
+			console.log("Geocode was not successful for the following reason: " + status);
       }
     });
 }

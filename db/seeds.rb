@@ -6,23 +6,45 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-# l = LiquorStore.create(name: 'Zipps Liquor', address: '2618 East Franklin Avenue, Minneapolis, MN')
-# l = LiquorStore.create(name: 'Franklin-Nicollet Liquor Store', address: '2012 Nicollet Avenue, Minneapolis, MN')
+require 'csv'
 
-# b = Beer.create(brand: 'Surly Brewing', name: 'Furious')
-# b = Beer.create(brand: 'Brau Brothers Brewing', name: 'The Ring Neck')
+CSV.foreach("#{Rails.root}/lib/data/beers.csv") do |row|
+    Beer.create(
+        :brand => row[0],
+        :name => row[1],
+        :style => row[2],
+        :country => row[3],
+        :city => row[4],
+        :state => row[5],
+        :malt => row[6],
+        :ibu => row[7],
+        :abv => row[8]
+    )
+end
 
-# p = Product.create(beer_id: 1, liquor_store_id: 1)
-# p = Product.create(beer_id: 1, liquor_store_id: 2)
-# p = Product.create(beer_id: 2, liquor_store_id: 1)
+CSV.foreach("#{Rails.root}/lib/data/liquor_stores.csv") do |row|
+    LiquorStore.create(
+        :name => row[0],
+        :address => row[1],
+        :city => row[2],
+        :state => row[3],
+        :zip_code => row[4],
+        :phone_number => row[5],
+        :email => row[6],
+        :website => row[7]
+    )
+end
 
-# l = LiquorStore.create(name: 'Northfield Liquor Store', address: '116 5th Street West', city: 'Northfield', state:'MN', zip_code: '55057')
-# b = Beer.create(brand: 'Surly Brewing', name: 'Bender')
-# p = Product.create(beer_id: 3, liquor_store_id: 3)
+CSV.foreach("#{Rails.root}/lib/data/products.csv") do |row|
+    Product.create(
+        :price => row[0],
+        :number_of_items => row[1],
+        :item_volume => row[2],
+        :item_type => row[3],
+        :liquor_store_id => row[4],
+        :beer_id => row[5]
+    )
+end
 
-# begin
-#     Liquor_store = Struct.new(:name,:address,:city,:state,:zip_code,:phone_number,:email,:website)
-
-
-# rescue
-# end
+LiquorStore.create(name: 'Northfield Liquor Store', address: '116 5th Street West', city: 'Northfield', state:'MN', zip_code: '55057')
+Product.create(beer_id: 3, liquor_store_id: 27)

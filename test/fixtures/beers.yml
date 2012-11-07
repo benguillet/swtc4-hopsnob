@@ -11,7 +11,7 @@
 #  state      :string(255)
 #  malt       :string(255)
 #  ibu        :decimal(, )
-#  abv        :integer
+#  abv        :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

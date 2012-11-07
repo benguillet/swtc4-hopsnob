@@ -15,15 +15,8 @@ def read_the_file filename, moShare_links
         file.readlines
     end
 
-    # Regularize the original format (a blank line can be missing at the last line, 
-    # which makes the length of each lines irregular)
-    last_line_split = lines.last.split(',')
-    if last_line_split.length < 7
-        lines.last << "\n"
-    end
-
     # Drops the 2 first lines which contains the headers and a return
-    lines.drop(2).each do |line|
+    lines.each do |line|
         split = line.split(',')
         moShare_links << MoShare_link.new(date=split[0], 
                                           source=split[1].strip!, 
@@ -187,6 +180,7 @@ begin
     
     send_by_mail filedate, email_file, recipient
     
+
     File.open(errorlog, 'a') { |f| f.write("\n\nSuccessfully emailed #{filename}\n\n\n\n") }
 rescue Exception => e  
     File.open(errorlog, 'a') { |f| f.write("\n\nError emailing: #{e.message}\n#{e.backtrace}\n\n\n\n") }

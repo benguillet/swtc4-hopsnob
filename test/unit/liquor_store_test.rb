@@ -8,8 +8,6 @@
 #  city         :string(255)
 #  state        :string(255)
 #  zip_code     :integer
-#  latitude     :decimal(, )
-#  longitude    :decimal(, )
 #  phone_number :string(255)
 #  email        :string(255)
 #  website      :string(255)

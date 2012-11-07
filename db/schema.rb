@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -12,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105192818) do
+ActiveRecord::Schema.define(:version => 20121107040814) do
 
   create_table "beers", :force => true do |t|
     t.string   "brand"
@@ -34,8 +33,6 @@ ActiveRecord::Schema.define(:version => 20121105192818) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip_code"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
     t.string   "phone_number"
     t.string   "email"
     t.string   "website"

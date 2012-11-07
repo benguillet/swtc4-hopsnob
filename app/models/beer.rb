@@ -16,6 +16,7 @@
 #  updated_at :datetime         not null
 #
 
+# validates_presence_of :brand
 class Beer < ActiveRecord::Base
   attr_accessible :brand, :name, :style, :country, :city, :state, :malt, :ibu, :abv
   has_many :products
